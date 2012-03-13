@@ -38,6 +38,53 @@ function bawllm_setup_nav_menu_item( $item )
 }
 add_filter( 'wp_setup_nav_menu_item', 'bawllm_setup_nav_menu_item' );
 
+/* [login] shortcode */
+function bawllm_shortcode_login( $atts, $content = null )
+{
+	extract(shortcode_atts(array(
+		"edit_tag" => "",
+		"redirect" => $_SERVER['REQUEST_URI']
+	), $atts ) );
+	$edit_tag = esc_html( strip_tags( $edit_tag ) );
+	$href = wp_login_url( $redirect );
+	$content = $content != '' ? $content : __( 'Log In' );
+	return '<a href="' . esc_url( $href ) . '"' .$edit_tag . '>' . $content . '</a>';
+}
+add_shortcode( 'login', 'bawllm_shortcode_login' );
+
+/* [loginout] shortcode */
+function bawllm_shortcode_loginout( $atts, $content = null )
+{
+	extract(shortcode_atts(array(
+		"edit_tag" => "",
+		"redirect" => $_SERVER['REQUEST_URI']
+	), $atts ) );
+	$edit_tag = strip_tags( $edit_tag );
+	$href = is_user_logged_in() ? wp_logout_url( $redirect ) : wp_login_url( $redirect );
+	if( $content && strstr( $content, '|' ) != '' ) { // the "|" char is used to split titles
+		$content = explode( '|', $content );
+		$content = is_user_logged_in() ? $content[1] : $content[0];
+	}else{
+		$content = is_user_logged_in() ? __( 'Logout' ) : __( 'Log In' );
+	}
+	return '<a href="' . esc_url( $href ) . '"' .$edit_tag . '>' . $content . '</a>';
+}
+add_shortcode( 'loginout', 'bawllm_shortcode_loginout' );
+
+/* [logout] shortcode */
+function bawllm_shortcode_logout( $atts, $content = null )
+{
+	extract(shortcode_atts(array(
+		"edit_tag" => "",
+		"redirect" => $_SERVER['REQUEST_URI']
+	), $atts ) );
+	$href = wp_logout_url( $redirect );
+	$edit_tag = esc_html( strip_tags( $edit_tag ) );
+	$content = $content != '' ? $content : __( 'Logout' );
+	return '<a href="' . esc_url( $href ) . '"' .$edit_tag . '>' . $content . '</a>';
+}
+add_shortcode( 'logout', 'bawllm_shortcode_logout' );
+
 /* Add a metabox in admin menu page */
 function bawllm_add_nav_menu_metabox() {
 	add_meta_box( 'bawllm', __( 'Login/Logout links' ), 'bawllm_nav_menu_metabox', 'nav-menus', 'side', 'default' );
