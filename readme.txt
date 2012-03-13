@@ -41,6 +41,8 @@ You can set 2 parameters, named "redirect" and "edit_tag".
 Redirect: used to redirect the user after the action (log in or out) ; example : "/welcome/" or "index.php"
 Edit_tag: used to modify the <a> tag, ; example " class='myclass'" or " id='myid' class='myclass' rel='friend'" etc
 
+You can also modify the title link with [login]Clic here to connect[/login] for example
+
 == Screenshots ==
 
 1. The meta box in nav menu admin page
