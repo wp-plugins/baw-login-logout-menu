@@ -3,7 +3,7 @@
 Plugin Name: BAW Login/Logout menu
 Plugin URI: http://www.boiteaweb.fr/logmenu
 Description: You can now add a correct login & logout link in your WP menus.
-Version: 1.0
+Version: 1.1
 Author: Juliobox
 Author URI: http://www.boiteaweb.fr
 */
