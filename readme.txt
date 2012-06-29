@@ -3,7 +3,7 @@ Contributors: juliobox, GregLone
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KJGT942XKWJ6W
 Tags: login, log in, logout, menu, nonce
 Requires at least: 3.0
-Tested up to: 3.3.1
+Tested up to: 3.4
 Stable tag: trunk
 
 Add real ‘Log in’ and ‘Logout’ links into your WordPress menus!
@@ -30,6 +30,7 @@ Visit your navigation admin menu page, you got a new box including 3 links, 'log
 Add the link you want, for example "Log in|Logout"
 1. You can change the 2 titles links, just separate them with a | (pipe)
 1. You can add a page for redirection, example #bawloginout#index.php This will redirect users on site index.
+1. [NEW 1.2] You can add 2 pages for redirection, example #bawloginout#login.php|logout.php This will redirect users too.
 1. For this redirection you can use the special value %actualpage%, this will redirect the user on the actual page.
 
 You can also (since 1.1) add 3 shortcodes inyour theme template or in your pages/posts. just do this :
@@ -48,6 +49,10 @@ You can also modify the title link with [login]Clic here to connect[/login] for 
 1. The meta box in nav menu admin page
 
 == Changelog ==
+
+= 1.2 =
+* 29 jun 2012
+* You can now add 2 pages for the #bawloginout# choice, check the FAQ
 
 = 1.1 =
 * 13 mar 2012

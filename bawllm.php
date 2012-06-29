@@ -3,7 +3,7 @@
 Plugin Name: BAW Login/Logout menu
 Plugin URI: http://www.boiteaweb.fr/logmenu
 Description: You can now add a correct login & logout link in your WP menus.
-Version: 1.1
+Version: 1.2
 Author: Juliobox
 Author URI: http://www.boiteaweb.fr
 */
@@ -27,7 +27,11 @@ function bawllm_setup_nav_menu_item( $item )
 		$item_redirect = str_replace( $item_url, '', $item->url );
 		$item_redirect = $item_redirect != '%actualpage%' ? $item_redirect : $_SERVER['REQUEST_URI'];
 		switch( $item_url ) {
-			case '#bawloginout#' : 	$item->url = is_user_logged_in() ? wp_logout_url( $item_redirect ) : wp_login_url( $item_redirect );
+			case '#bawloginout#' : 	
+									$item_redirect = explode( '|', $item_redirect );
+									if( count( $item_redirect ) != 2 ) 
+										$item_redirect[1] = $item_redirect[0];
+									$item->url = is_user_logged_in() ? wp_logout_url( $item_redirect[1] ) : wp_login_url( $item_redirect[0] );
 									$item->title = bawllm_loginout_title( $item->title ) ; break;
 			case '#bawlogin#' : 	$item->url = wp_login_url( $item_redirect ); break;
 			case '#bawlogout#' : 	$item->url = wp_logout_url( $item_redirect ); break;
