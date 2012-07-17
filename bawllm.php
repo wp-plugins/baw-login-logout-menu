@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: BAW Login/Logout menu
-Plugin URI: http://www.boiteaweb.fr/logmenu
+Plugin URI: http://www.boiteaweb.fr/llm
 Description: You can now add a correct login & logout link in your WP menus.
-Version: 1.2
+Version: 1.3
 Author: Juliobox
 Author URI: http://www.boiteaweb.fr
 */
@@ -22,7 +22,7 @@ function bawllm_loginout_title( $title )
 function bawllm_setup_nav_menu_item( $item )
 {
 	global $pagenow;
-	if( $pagenow!='nav-menus.php' && !defined('DOING_AJAX') && isset( $item->url ) && strstr( $item->url, '#bawlog' ) != '' ){
+	if( $pagenow!='nav-menus.php' && !defined('DOING_AJAX') && isset( $item->url ) && strstr( $item->url, '#baw' ) != '' ){
 		$item_url = substr( $item->url, 0, strpos( $item->url, '#', 1 ) ) . '#';
 		$item_redirect = str_replace( $item_url, '', $item->url );
 		$item_redirect = $item_redirect != '%actualpage%' ? $item_redirect : $_SERVER['REQUEST_URI'];
@@ -35,6 +35,7 @@ function bawllm_setup_nav_menu_item( $item )
 									$item->title = bawllm_loginout_title( $item->title ) ; break;
 			case '#bawlogin#' : 	$item->url = wp_login_url( $item_redirect ); break;
 			case '#bawlogout#' : 	$item->url = wp_logout_url( $item_redirect ); break;
+			case '#bawregister#' : 	if( is_user_logged_in() ) $item = null; else $item->url = site_url( 'wp-login.php?action=register', 'login' ); break;
 		}
 		$item->url = esc_url( $item->url );
 	}
@@ -89,6 +90,18 @@ function bawllm_shortcode_logout( $atts, $content = null )
 }
 add_shortcode( 'logout', 'bawllm_shortcode_logout' );
 
+/* [register] shortcode */
+function bawllm_shortcode_register( $atts, $content = null )
+{
+	if( is_user_logged_in() )
+		return '';
+	$href = site_url('wp-login.php?action=register', 'login');
+	$content = $content != '' ? $content : __( 'Register' );
+	$link = '<a href="' . $href. '">' . $content . '</a>';
+	return $link;
+}
+add_shortcode( 'register', 'bawllm_shortcode_register' );
+
 /* Add a metabox in admin menu page */
 function bawllm_add_nav_menu_metabox() {
 	add_meta_box( 'bawllm', __( 'Login/Logout links' ), 'bawllm_nav_menu_metabox', 'nav-menus', 'side', 'default' );
@@ -100,7 +113,7 @@ function bawllm_nav_menu_metabox( $object )
 {
 	global $nav_menu_selected_id;
 
-	$elems = array( '#bawlogin#' => __( 'Log In' ), '#bawlogout#' => __( 'Log Out' ), '#bawloginout#' => __( 'Log In' ).'|'.__( 'Log Out' ) );
+	$elems = array( '#bawlogin#' => __( 'Log In' ), '#bawlogout#' => __( 'Log Out' ), '#bawloginout#' => __( 'Log In' ).'|'.__( 'Log Out' ), '#bawregister#' => __( 'Register' ) );
 	class bawlogItems {
 		public $db_id = 0;
 		public $object = 'bawlog';
@@ -164,7 +177,7 @@ function bawllm_nav_menu_metabox( $object )
 /* Modify the "type_label" */
 function bawllm_nav_menu_type_label( $menu_item )
 {
-	$elems = array( '#bawlogin#', '#bawlogout#', '#bawloginout#' );
+	$elems = array( '#bawlogin#', '#bawlogout#', '#bawloginout#', '#bawregister#' );
 	if ( isset($menu_item->object, $menu_item->url) && $menu_item->object == 'custom' && in_array($menu_item->url, $elems) )
 		$menu_item->type_label = ( get_locale() == 'fr_FR' ? 'Connexion' : 'Connection' );
 

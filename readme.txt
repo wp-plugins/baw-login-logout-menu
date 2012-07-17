@@ -3,17 +3,17 @@ Contributors: juliobox, GregLone
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KJGT942XKWJ6W
 Tags: login, log in, logout, menu, nonce
 Requires at least: 3.0
-Tested up to: 3.4
+Tested up to: 3.4.1
 Stable tag: trunk
 
-Add real ‘Log in’ and ‘Logout’ links into your WordPress menus!
+Add real ‘Log in’ and ‘Logout’, Register’ links into your WordPress menus!
 
 == Description ==
 
-With this plugin you can now add a real log in/logout item menu with autoswitch when user is logged in or not.
+With this plugin you can now add a real log in/logout, register items menu with autoswitch when user is logged in or not.
 Nonce token is present on logout item.
 2 titles, one for 'log in' and one for 'logout' can be set up.
-Also, you can set the redirecion page you want, just awesome.
+Also, you can set the redirection page you want, just awesome.
 
 == Installation ==
 
@@ -26,19 +26,19 @@ Also, you can set the redirecion page you want, just awesome.
 
 = How does this works? =
 
-Visit your navigation admin menu page, you got a new box including 3 links, 'log in', 'logout', 'log in/logout'.
+Visit your navigation admin menu page, you got a new box including 4 links, 'log in', 'logout', 'log in/logout', 'register'.
 Add the link you want, for example "Log in|Logout"
 1. You can change the 2 titles links, just separate them with a | (pipe)
 1. You can add a page for redirection, example #bawloginout#index.php This will redirect users on site index.
-1. [NEW 1.2] You can add 2 pages for redirection, example #bawloginout#login.php|logout.php This will redirect users too.
+1. You can add 2 pages for redirection, example #bawloginout#login.php|logout.php This will redirect users too.
 1. For this redirection you can use the special value %actualpage%, this will redirect the user on the actual page.
 
-You can also (since 1.1) add 3 shortcodes inyour theme template or in your pages/posts. just do this :
+You can also add 4 shortcodes in your theme template or in your pages/posts. just do this :
 For theme : `<?php echo do_shortcode( '[loginout]' ); ?>`
 In you posts/pages : `[loginout]`
 
-The 3 shortcodes are "[login]", "[logout]" and "[loginout]".
-You can set 2 parameters, named "redirect" and "edit_tag".
+The 4 shortcodes are "[login]", "[logout]", "[loginout]" and "[register]".
+You can set 2 parameters, named "redirect" and "edit_tag" (but register).
 Redirect: used to redirect the user after the action (log in or out) ; example : "/welcome/" or "index.php"
 Edit_tag: used to modify the <a> tag, ; example " class='myclass'" or " id='myid' class='myclass' rel='friend'" etc
 
@@ -49,6 +49,10 @@ You can also modify the title link with [login]Clic here to connect[/login] for 
 1. The meta box in nav menu admin page
 
 == Changelog ==
+
+= 1.3 =
+* 17 jul 2012
+* Add a "Register" menu and shortcode. If you are logged, nothing is displayed.
 
 = 1.2 =
 * 29 jun 2012
