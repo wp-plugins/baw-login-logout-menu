@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== BAW Login Loagout Menu ===
 Contributors: juliobox, GregLone
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KJGT942XKWJ6W
 Tags: login, log in, logout, menu, nonce
@@ -6,7 +6,7 @@ Requires at least: 3.0
 Tested up to: 3.4.1
 Stable tag: trunk
 
-Add real ‘Log in’ and ‘Logout’, Register’ links into your WordPress menus!
+Add real ‘Log in’ and ‘Logout’, ‘Register’ links into your WordPress menus!
 
 == Description ==
 
@@ -27,13 +27,15 @@ Also, you can set the redirection page you want, just awesome.
 = How does this works? =
 
 Visit your navigation admin menu page, you got a new box including 4 links, 'log in', 'logout', 'log in/logout', 'register'.
-Add the link you want, for example "Log in|Logout"
+
+Add the link you want, for example "Log in|Logout":
+
 1. You can change the 2 titles links, just separate them with a | (pipe)
 1. You can add a page for redirection, example #bawloginout#index.php This will redirect users on site index.
 1. You can add 2 pages for redirection, example #bawloginout#login.php|logout.php This will redirect users too.
 1. For this redirection you can use the special value %actualpage%, this will redirect the user on the actual page.
 
-You can also add 4 shortcodes in your theme template or in your pages/posts. just do this :
+You can also add 4 shortcodes in your theme template or in your pages/posts. just do this:
 For theme : `<?php echo do_shortcode( '[loginout]' ); ?>`
 In you posts/pages : `[loginout]`
 
