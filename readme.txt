@@ -1,4 +1,4 @@
-=== BAW Login Logout Menu ===
+=== Login Logout Menu ===
 Contributors: juliobox, GregLone
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KJGT942XKWJ6W
 Tags: login, log in, logout, menu, nonce
@@ -51,6 +51,10 @@ You can also modify the title link with [login]Clic here to connect[/login] for 
 1. The meta box in nav menu admin page
 
 == Changelog ==
+
+= 1.3.1
+* 27 sep 2012
+* Bug fix for %actualpage% and | (pipe), thank to Kevin Kirschman for the patch!
 
 = 1.3 =
 * 17 jul 2012
