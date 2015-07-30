@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Login Logout Menu ===
 Contributors: juliobox, GregLone
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KJGT942XKWJ6W
 Tags: login, log in, logout, menu, nonce
