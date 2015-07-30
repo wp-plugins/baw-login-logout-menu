@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: BAW Login/Logout menu
-Plugin URI: http://www.boiteaweb.fr/llm
+Plugin URI: http://www.boiteaweb.fr/?p=3337
 Description: You can now add a correct login & logout link in your WP menus.
-Version: 1.3.2
 Author: Juliobox
-Author URI: http://www.boiteaweb.fr
+Author URI: http://wp-rocket.me
+Version: 1.3.3
 */
 
-define( 'BAWLLM_VERSION', '1.3.2' );
+define( 'BAWLLM_VERSION', '1.3.3' );
 
 add_action( 'plugins_loaded', create_function( '', '
 	$filename  = "inc/";

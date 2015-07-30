@@ -3,7 +3,7 @@ Contributors: juliobox, GregLone
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KJGT942XKWJ6W
 Tags: login, log in, logout, menu, nonce
 Requires at least: 3.0
-Tested up to: 3.5b2
+Tested up to: 4.3
 Stable tag: trunk
 
 Add real ‘Log in’ and ‘Logout’ links into your WordPress menus!
@@ -33,7 +33,7 @@ Add the link you want, for example "Log in|Logout"
 1. You can add 2 pages for redirection, example #bawloginout#login.php|logout.php This will redirect users too.
 1. For this redirection you can use the special value %actualpage%, this will redirect the user on the actual page.
 
-You can also (since 1.1) add 3 shortcodes inyour theme template or in your pages/posts. just do this :
+You can also add 3 shortcodes inyour theme template or in your pages/posts. just do this :
 For theme : `<?php echo do_shortcode( '[loginout]' ); ?>`
 In you posts/pages : `[loginout]`
 
@@ -44,11 +44,18 @@ Edit_tag: used to modify the <a> tag, ; example " class='myclass'" or " id='myid
 
 You can also modify the title link with [login]Clic here to connect[/login] for example
 
+There is a new hook (1.3.3) named 'bawregister_item", this is a menu item, when a user is not logged in, it contains the register button/link, and when the user is logged in, since the link will diseppear, you can hook it and change the ttle and URL, so it won't go away.
+
 == Screenshots ==
 
 1. The meta box in nav menu admin page
 
 == Changelog ==
+
+= 1.3.3 =
+* 31 july 2015
+* New hook, see FAQ
+* Code compliant
 
 = 1.3 =
 * 09 nov 2012
