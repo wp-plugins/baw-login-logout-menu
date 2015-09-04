@@ -17,7 +17,8 @@ function bawllm_nav_menu_metabox( $object ) {
 					'#bawloginout#' => __( 'Log In' ) . '|' . __( 'Log Out' ), 
 					'#bawregister#' => __( 'Register' ) 
 				);
-	class bawlogItems {
+    do_action_ref_array('bawllm_admin_nav_menu_init', [&$elems]);
+    class bawlogItems {
 		public $db_id = 0;
 		public $object = 'bawlog';
 		public $object_id;
