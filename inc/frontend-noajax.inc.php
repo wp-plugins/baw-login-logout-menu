@@ -44,7 +44,7 @@ function bawllm_setup_nav_menu_item( $item ) {
 									}
 									$item = apply_filters( 'bawregister_item', $item );
 									break;
-            default:                do_action('bawllm_setup_nav_menu_item', $item_url, $item); break;
+			default:		do_action('bawllm_setup_nav_menu_item', $item_url, $item); break;
         }
 		$item->url = esc_url( $item->url );
 	}
